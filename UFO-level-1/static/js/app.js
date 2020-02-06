@@ -4,9 +4,10 @@ var button = d3.select("#button");
 
 
 button.on("click", function() {
-    var inputElement = d3
+    var inputElement = d3.select("#datetime");
     var inputValue = inputElement.property("value");
     console.log(inputValue);
+    d3.select("h1>span").text(inputValue);
     console.log(tableData);
     var filteredData = tableData.filter(tableData => tableData.Date === inputValue);
     console.log(filteredData);
