@@ -1,16 +1,17 @@
 var tableData = data;
 var tbody = d3.select("tbody");
-var button = d3.select("#button");
+var button = d3.select("#filter-btn");
+var filteredData = []
 
 
-button.on("click", function() {
-    var inputElement = d3.select("#datetime");
+button.on("change", function() {
+    var inputElement = d3;
     var inputValue = inputElement.property("value");
     console.log(inputValue);
-    d3.select("h1>span").text(inputValue);
-    console.log(tableData);
+    d3.select(".filter list-group-item").text(inputValue);
     var filteredData = tableData.filter(tableData => tableData.Date === inputValue);
     console.log(filteredData);
+    var filteredData =filteredData.append()
 });
 
 data.forEach(function(tableData) {
