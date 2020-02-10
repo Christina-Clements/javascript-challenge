@@ -1,17 +1,24 @@
 var tableData = data;
 var tbody = d3.select("tbody");
-var button = d3.select("#filter-btn");
-var filteredData = []
-
+var button = d3.select("#button");
 
 button.on("change", function() {
-    var inputElement = d3;
+    var inputElement = d3.select("#datetime");
     var inputValue = inputElement.property("value");
     console.log(inputValue);
     d3.select(".filter list-group-item").text(inputValue);
-    var filteredData = tableData.filter(tableData => tableData.Date === inputValue);
+    var filteredData = tableData.filter(date => date.datetime === inputValue);
     console.log(filteredData);
-    var filteredData =filteredData.append()
+    var dates = filteredData.map(date => date.datetime);
+    var list = d3.select(".table table-striped");
+    list.html("");
+    list.append("li").text(`Date: ${datetime}`);
+    list.append("li").text(`City: ${city}`);
+    list.append("li").text(`State: ${state}`);
+    list.append("li").text(`Country: ${country}`);
+    list.append("li").text(`Shape: ${shape}`);
+    list.append("li").text(`Duration in Minutes: ${durationMinutes}`);
+    list.append("li").text(`Comments: ${comments}`);
 });
 
 data.forEach(function(tableData) {
